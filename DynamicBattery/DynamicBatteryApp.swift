@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct DynamicBatteryApp: App {
+    // create AppDelegate，fir menu bar
+    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     var body: some Scene {
-        WindowGroup {
-            ContentView()
+        Settings {
+            EmptyView() // the view window is not needed
         }
     }
 }
+
+

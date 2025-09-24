@@ -8,17 +8,26 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var batteryManager = BatteryManager()
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            if batteryManager.batteryLevel >= 0 {
+                Text("🔋 \(batteryManager.batteryLevel)%")
+                    .font(.largeTitle)
+                    .padding()
+            } else {
+                Text("cannot access battery ⚡️")
+            }
         }
-        .padding()
     }
 }
 
 #Preview {
     ContentView()
 }
+
+
+
+
+
